@@ -1,25 +1,33 @@
-import user from './components/Profile/user.json';
-import data from './components/Statistics/data.json';
-import friends from './components/FriendList/friends.json';
-import transactions from './components/TransactionHistory/transactions.json';
+import React, { Component } from 'react';
+import { FeedbackOptions } from './components/FeedbackOptions/FeedbackOptions';
+import { Statistics } from './components/Statistics/Statistics';
+import { Notification } from 'components/Notification/Notification'; 
 
-import { Profile } from "./components/Profile/Profile";
-import { Statistics } from "./components/Statistics/Statistics";
-import { FriendList } from "./components/FriendList/FriendList";
-import { TransactionHistory } from './components/TransactionHistory/TransactionHistory';
 
-export const App = () => {
-  return (
-    <div>
-  <Profile username={user.username}
-  tag={user.tag}
-  location={user.location}
-  avatar={user.avatar}
-  stats={user.stats} />
-   
-  <Statistics title="Upload stats" stats={data} />
-  <FriendList friends={friends} />;
-  <TransactionHistory items={transactions} />
-    </div>
-  );
+export class App extends Component {
+  //   static defaultProps = {
+  //   total: 0,
+  //   positivePercentage: 0,
+  // };
+
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+
+  render() {
+    // const { good, neutral, bad } = this.state;
+    return (
+      <>
+    <h1>Please leave feedback</h1>
+        <FeedbackOptions options={Object.keys(this.state)} />
+
+    <h1>Statistics</h1>
+        <Statistics />
+        
+        <Notification />
+      </>
+    )
+}
 };
