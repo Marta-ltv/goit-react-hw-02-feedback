@@ -1,22 +1,21 @@
 import React from "react";
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { StatList, StatItem, StatSpan } from "./Statistics.styled";
 
 
 export const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
-    <ul>
-        <li>Goog:<span>{good}</span></li>
-        <li>Neutral:<span>{neutral}</span></li>
-        <li>Bad:<span>{bad}</span></li>
-        <li>Total:<span>{total}</span></li>
-        <li>Positive feedback:<span>{positivePercentage}%</span></li>
-    </ul>
+    <StatList>
+        <StatItem>Neutral:<StatSpan>{neutral}</StatSpan></StatItem>
+        <StatItem>Bad:<StatSpan>{bad}</StatSpan></StatItem>
+        <StatItem>Total:<StatSpan>{total}</StatSpan></StatItem>
+        <StatItem>Positive feedback:<StatSpan>{positivePercentage}%</StatSpan></StatItem>
+    </StatList>
 )
 
-// Statistics.propTypes = {
-//   title: PropTypes.string,
-//   stats: PropTypes.arrayOf(
-//     PropTypes.exact({
-//       id: PropTypes.string.isRequired,
-//       label: PropTypes.string.isRequired,
-//       percentage: PropTypes.number.isRequired,})).isRequired,
-// }
+Statistics.propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
+};

@@ -1,6 +1,6 @@
 import React from "react";
-// import PropTypes from 'prop-types';
-// import css from './Feedback.module.css';
+import PropTypes from 'prop-types';
+
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div className='Feedback__list'>
@@ -11,3 +11,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 
+FeedbackOptions.propTypes = {
+    options: PropTypes.number.isRequired,
+    onLeaveFeedback: PropTypes.number.isRequired,
+};
